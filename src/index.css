@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Sora", "Segoe UI", sans-serif;
+  --font-body: "Inter", "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", monospace;
+
+  --color-ink: #12121f;
+  --color-ink-soft: #1c1c30;
+  --color-ink-line: #2a2a42;
+
+  --color-base: #f5f5fb;
+  --color-surface: #ffffff;
+  --color-border: #e7e7f1;
+
+  --color-accent: #6c5ce7;
+  --color-accent-2: #8b7cf6;
+  --color-accent-soft: #eeebfd;
+
+  --color-teal: #00b8a0;
+  --color-teal-soft: #e0f7f3;
+
+  --color-amber: #f5a524;
+  --color-amber-soft: #fdf0dc;
+
+  --color-danger: #f0506e;
+  --color-danger-soft: #fde6ea;
+
+  --color-text: #15151f;
+  --color-muted: #6b6b80;
+  --color-muted-2: #9a9aab;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-base);
+    color: var(--color-text);
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 8px;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  /* Signature: pulse-line — an animated heartbeat/sparkline stroke used
+     as the dashboard's recurring motif (top of cards, live indicators) */
+  .pulse-line {
+    stroke-dasharray: 220;
+    stroke-dashoffset: 220;
+    animation: draw-pulse 1.8s ease-out forwards;
+  }
+  @keyframes draw-pulse {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  .live-dot {
+    position: relative;
+  }
+  .live-dot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: currentColor;
+    animation: live-ping 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  @keyframes live-ping {
+    0% {
+      transform: scale(1);
+      opacity: 0.55;
+    }
+    100% {
+      transform: scale(2.4);
+      opacity: 0;
+    }
+  }
+
+  .fade-up {
+    animation: fade-up 0.5s ease both;
+  }
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .stagger-1 { animation-delay: 0.05s; }
+  .stagger-2 { animation-delay: 0.1s; }
+  .stagger-3 { animation-delay: 0.15s; }
+  .stagger-4 { animation-delay: 0.2s; }
+}
