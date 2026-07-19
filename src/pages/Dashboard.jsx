@@ -1,4 +1,4 @@
-import StatCard from "../components/dashboard/StatCard";
+import StatCard from "../components/dashboard/StatCard.jsx";
 import RevenueChart from "../components/dashboard/RevenueChart";
 import ActivityTable from "../components/dashboard/ActivityTable";
 import ProfileCard from "../components/dashboard/ProfileCard";

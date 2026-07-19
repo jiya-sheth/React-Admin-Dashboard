@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Sidebar from "./Sidebar";
-import Topbar from "./Topbar";
+import Topbar from "./Topbar.jsx";
 
 const titles = {
     overview: "Overview",
