@@ -1,6 +1,6 @@
 import { Menu, ChevronDown } from "lucide-react";
 import { useState } from "react";
-import SearchBar from "../dashboard/SearchBar";
+import SearchBar from "../dashboard/SearchBar.jsx";
 import NotificationsPanel from "../dashboard/NotificationsPanel";
 import Avatar from "../ui/Avatar";
 import { currentUser } from "../../data/mockData";
